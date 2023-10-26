@@ -100,11 +100,13 @@
 
 .character .name {
   font-size: 30px;
+  text-align: center;
 }
 
 .character .quote {
   text-align: center;
   padding: 10px;
+  max-width: 400px;
 }
 
 .character .imageQuote {
@@ -113,4 +115,21 @@
 
 .character .controls button {
   margin: 5px;
+}
+
+.character .liked {
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.233);
+  border-radius: 10px;
+}
+.character .likedName {
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+
+.character .like {
+  color: rgb(139, 139, 139);
 }

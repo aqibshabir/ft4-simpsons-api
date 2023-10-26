@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 class Quote extends Component {
   render() {
-    const { quote } = this.props;
+    const { quote, liked } = this.props;
     return (
       <div className="quote">
-        <p>{quote}</p>
+        <p className={liked ? "liked" : "unlike"}>{quote}</p>
       </div>
     );
   }

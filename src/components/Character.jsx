@@ -5,33 +5,49 @@ import Image from "./Image";
 import Controls from "./Controls";
 
 class Character extends Component {
-  render() {
-    const { character, quote, image, characterDirection } =
-      this.props.character;
+  state = { liked: false, disliked: false };
 
-    console.log(characterDirection);
+  onLikeClick = (id) => {
+    this.setState({ liked: !this.state.liked });
+  };
+
+  onDislikeClick = (id) => {
+    this.setState({ disliked: !this.state.disliked });
+  };
+
+  render() {
+    const { character, quote, image, characterDirection, id } =
+      this.props.character;
 
     if (characterDirection === "Left") {
       return (
         <div className="character">
-          <Name name={character} />
+          <Name name={character} liked={this.state.liked} />
           <div className="imageQuote">
             <Image image={image} />
-            <Quote quote={quote} />
+            <Quote quote={quote} liked={this.state.liked} />
           </div>
-          <Controls />
+          <Controls
+            onLikeClick={this.onLikeClick}
+            id={id}
+            liked={this.state.liked}
+          />
         </div>
       );
     }
 
     return (
       <div className="character">
-        <Name name={character} />
+        <Name name={character} liked={this.state.liked} />
         <div className="imageQuote">
-          <Quote quote={quote} />
+          <Quote quote={quote} liked={this.state.liked} />
           <Image image={image} />
         </div>
-        <Controls />
+        <Controls
+          onLikeClick={this.onLikeClick}
+          id={id}
+          liked={this.state.liked}
+        />
       </div>
     );
   }

@@ -12,6 +12,12 @@ class App extends Component {
       const { data } = await axios.get(
         `https://thesimpsonsquoteapi.glitch.me/quotes?count=20`
       );
+
+      //unique id
+      data.forEach((el) => {
+        el.id = Math.round(Math.random() * 100000);
+      });
+
       this.setState({ simpsons: data });
     } catch (e) {
       console.log("Looks like the API is down!");
@@ -19,7 +25,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state);
     const { simpsons } = this.state;
 
     if (!simpsons) {
