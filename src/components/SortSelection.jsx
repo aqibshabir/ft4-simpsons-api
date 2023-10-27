@@ -10,6 +10,7 @@ class SortSelection extends Component {
           <option value="">---</option>
           <option value="az">Sort Characters by: A to Z</option>
           <option value="za">Sort Characters by: Z to A</option>
+          <option value="like">Sort Characters by: Liked</option>
         </select>
       </div>
     );

@@ -8,12 +8,11 @@ class Controls extends Component {
     return (
       <div className="controls">
         <Button
-          text={liked ? "Liked" : "Like"}
+          text={liked ? "Unlike" : "Like"}
           id={id}
           onClick={onLikeClick}
           liked={liked}
         />
-        <Button id={id} text={"Delete"} onClick={onDeleteClick} />
       </div>
     );
   }

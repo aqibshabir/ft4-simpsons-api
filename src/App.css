@@ -4,6 +4,7 @@
   position: relative;
   width: 80px;
   height: 80px;
+  padding: 20px;
 }
 .lds-spinner div {
   transform-origin: 40px 40px;
@@ -18,7 +19,7 @@
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: #7e72ff;
+  background: #ffee00;
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);
@@ -88,49 +89,49 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(158, 160, 255);
-  border: 1px solid none;
+  background-color: rgba(255, 255, 255, 0.856);
+  border: 3px solid rgba(0, 0, 0, 0.849);
   border-radius: 30px;
 }
 
-.character img {
+.characterLiked {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.856);
+  border: 3px solid red;
+  border-radius: 30px;
+}
+
+.character img,
+.characterLiked img {
   width: 100px;
 }
 
-.character .name {
+.character .name,
+.characterLiked .name {
   font-size: 30px;
   text-align: center;
 }
 
-.character .quote {
+.character .quote,
+.characterLiked .quote {
   text-align: center;
   padding: 10px;
   max-width: 400px;
 }
 
-.character .imageQuote {
+.character .imageQuote,
+.characterLiked .imageQuote {
   display: flex;
 }
 
-.character .controls button {
+.character .controls button,
+.characterLiked .controls button {
   margin: 5px;
-}
-
-.character .liked {
-  font-weight: 700;
-  color: rgb(0, 0, 0);
-  padding: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.233);
-  border-radius: 10px;
-}
-.character .likedName {
-  font-weight: 700;
-  color: rgb(0, 0, 0);
-  text-decoration: underline;
-}
-
-.character .like {
-  color: rgb(139, 139, 139);
 }
 
 div .search {
@@ -140,7 +141,11 @@ div .search {
 }
 
 .search input {
-  width: 300px;
+  width: 400px;
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.685);
+  border-radius: 10px;
+  padding-left: 10px;
 }
 
 .selectControls {
@@ -154,5 +159,75 @@ div .search {
 }
 
 html {
-  background-color: #feffa6;
+  background-color: rgb(138, 214, 252);
+}
+
+button {
+  all: unset;
+}
+
+.controls {
+  align-self: flex-start;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  align-self: flex-end;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  transform: scale(1.2);
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(138, 214, 252);
+}
+
+@font-face {
+  font-family: "Homer_Simpson_Revised";
+  src: url("./resources/fonts/Homer_Simpson_Revised.ttf");
+}
+
+.search h1 {
+  font-size: 70px;
+  margin: 10px;
+  font-family: "Homer_Simpson_Revised";
+  src: url("./resources/fonts/Homer_Simpson_Revised.ttf");
+  color: #ffee00;
+}
+
+.name p {
+  font-family: "Homer_Simpson_Revised";
+  src: url("./resources/fonts/Homer_Simpson_Revised.ttf");
+  font-size: 50px;
+  margin: 20px;
+}
+
+div .container {
+  background-color: rgb(138, 214, 252);
+}
+
+.search {
+  background-image: url(./resources/images/clouds.jpg);
+}
+
+.characterLiked .likedName {
+  text-decoration: underline red;
+}
+
+.likedBold {
+  color: red;
+  font-family: "Homer_Simpson_Revised";
+  src: url("./resources/fonts/Homer_Simpson_Revised.ttf");
+  font-size: 30px;
+  margin: 0;
+}
+
+.controls:hover {
+  transform: scale(1.2);
+  border-radius: 50%;
+  background: transparent;
+  color: rgb(138, 214, 252);
 }

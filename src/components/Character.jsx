@@ -3,6 +3,7 @@ import Name from "./Name";
 import Quote from "./Quote";
 import Image from "./Image";
 import Controls from "./Controls";
+import Delete from "./Delete";
 
 class Character extends Component {
   state = {};
@@ -15,35 +16,27 @@ class Character extends Component {
 
     if (characterDirection === "Left") {
       return (
-        <div className="character">
+        <div className={liked ? "characterLiked" : "character"} liked={liked}>
+          <Delete id={id} onDeleteClick={onDeleteClick} />
           <Name name={character} liked={liked} />
           <div className="imageQuote">
             <Image image={image} />
             <Quote quote={quote} liked={liked} />
           </div>
-          <Controls
-            onLikeClick={onLikeClick}
-            id={id}
-            liked={liked}
-            onDeleteClick={onDeleteClick}
-          />
+          <Controls onLikeClick={onLikeClick} id={id} liked={liked} />
         </div>
       );
     }
 
     return (
-      <div className="character">
+      <div className={liked ? "characterLiked" : "character"} liked={liked}>
+        <Delete id={id} onDeleteClick={onDeleteClick} />
         <Name name={character} liked={liked} />
         <div className="imageQuote">
           <Quote quote={quote} liked={liked} />
           <Image image={image} />
         </div>
-        <Controls
-          onLikeClick={onLikeClick}
-          onDeleteClick={onDeleteClick}
-          id={id}
-          liked={liked}
-        />
+        <Controls onLikeClick={onLikeClick} id={id} liked={liked} />
       </div>
     );
   }
