@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Spinner from "./components/Spinner";
-import { sortCharacters } from "./utils/sort";
 import "./App.css";
 
 import Interface from "./components/Interface";
@@ -44,8 +43,12 @@ class App extends Component {
     this.setState({ sort: e.target.value });
   };
 
+  onSearch = (e) => {
+    this.setState({ search: e.target.value });
+  };
+
   render() {
-    const { simpsons, sort } = this.state;
+    const { simpsons, sort, search } = this.state;
 
     if (!simpsons) {
       return (
@@ -56,7 +59,6 @@ class App extends Component {
     }
 
     const characters = [...simpsons];
-    sortCharacters(sort, characters);
 
     return (
       <Interface
@@ -64,6 +66,9 @@ class App extends Component {
         onLikeClick={this.onLikeClick}
         characters={characters}
         onSortSelection={this.onSortSelection}
+        sort={sort}
+        search={search}
+        onSearch={this.onSearch}
       />
     );
   }
