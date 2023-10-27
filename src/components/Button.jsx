@@ -2,16 +2,11 @@ import React, { Component } from "react";
 
 class Button extends Component {
   render() {
-    const { text, onLikeClick, id, liked } = this.props;
+    const { text, onClick, id } = this.props;
 
     return (
       <>
-        <button
-          className={liked ? "like" : "notLike"}
-          onClick={() => onLikeClick(id)}
-        >
-          {liked ? "Undo" : text}
-        </button>
+        <button onClick={() => onClick(id)}>{text}</button>
       </>
     );
   }
