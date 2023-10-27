@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Characters from "./components/Characters";
 import Spinner from "./components/Spinner";
 import { sortCharacters } from "./utils/sort";
 import "./App.css";
-import SortSelection from "./components/SortSelection";
+
+import Interface from "./components/Interface";
 
 class App extends Component {
   state = {};
@@ -55,18 +55,16 @@ class App extends Component {
       );
     }
 
-    const _simpsons = [...simpsons];
-    sortCharacters(sort, _simpsons);
+    const characters = [...simpsons];
+    sortCharacters(sort, characters);
 
     return (
-      <div className="container">
-        <SortSelection onSortSelection={this.onSortSelection} />
-        <Characters
-          characters={_simpsons}
-          onDeleteClick={this.onDeleteClick}
-          onLikeClick={this.onLikeClick}
-        />
-      </div>
+      <Interface
+        onDeleteClick={this.onDeleteClick}
+        onLikeClick={this.onLikeClick}
+        characters={characters}
+        onSortSelection={this.onSortSelection}
+      />
     );
   }
 }
