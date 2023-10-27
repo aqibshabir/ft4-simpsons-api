@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Character from "./components/Character";
+import Characters from "./components/Characters";
 import Spinner from "./components/Spinner";
-import "./App.css";
 import { sortCharacters } from "./utils/sort";
+import "./App.css";
+import SortSelection from "./components/SortSelection";
 
 class App extends Component {
   state = {};
@@ -55,28 +56,16 @@ class App extends Component {
     }
 
     const _simpsons = [...simpsons];
-
     sortCharacters(sort, _simpsons);
 
     return (
       <div className="container">
-        <div className="controls">
-          <label htmlFor="sort">Sort by: </label>
-          <select name="sort" id="sort" onChange={this.onSortSelection}>
-            <option value="az">A to Z</option>
-            <option value="za">Z to A</option>
-          </select>
-        </div>
-        {simpsons.map((character) => {
-          return (
-            <Character
-              key={character.id}
-              character={character}
-              onDeleteClick={this.onDeleteClick}
-              onLikeClick={this.onLikeClick}
-            />
-          );
-        })}
+        <SortSelection onSortSelection={this.onSortSelection} />
+        <Characters
+          characters={_simpsons}
+          onDeleteClick={this.onDeleteClick}
+          onLikeClick={this.onLikeClick}
+        />
       </div>
     );
   }
